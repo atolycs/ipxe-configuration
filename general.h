@@ -1,0 +1,12 @@
+#define DOWNLOAD_PROTO_HTTPS
+#define DOWNLOAD_PROTO_NFS
+#define IMAGE_TRUST_CMD
+#define NEIGHBOUR_CMD
+#define NTP_CMD
+#define REBOOT_CMD
+#define PING_CMD
+#define POWEROFF_CMD
+#define IMAGE_PNG
+#define CONSOLE_CMD
+
+#undef SHIM_CMD 

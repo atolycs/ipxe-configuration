@@ -1,0 +1,7 @@
+#!ipxe
+
+echo Welcome to Atolycs iPXE EFI Loader
+echo Loading Module...
+prompt --key 0x02 --timeout 2000 Press Ctrl-B for the iPXE command line... && shell || dhcp
+
+chain --autofree http://boot.netboot.xyz/ipxe/netboot.xyz.efi
