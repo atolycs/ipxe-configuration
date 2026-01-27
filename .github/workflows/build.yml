@@ -17,9 +17,8 @@ jobs:
           sudo apt install -y \
             gcc \
             genisoimage \
-            build-essentials \
-            make \
-            xz-devel && \
+            build-essential \
+            make &&\
           sudo apt clean
 
       - name: Build
