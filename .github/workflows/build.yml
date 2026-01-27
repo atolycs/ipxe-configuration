@@ -1,0 +1,33 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build iPXE EFI Images
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+
+      - name: Setup
+        run: |
+          sudo apt update && \
+          sudo apt install -y \
+            gcc \
+            genisoimage \
+            build-essentials \
+            make \
+            xz-devel && \
+          sudo apt clean
+
+      - name: Build
+        run: |
+          make build
+
+      - name: Upload Artifacts
+        if: ${{ success() }}
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0
+        with:
+          name: ipxe.efi
+          path: ./ipxe.efi
